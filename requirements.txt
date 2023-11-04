@@ -17,3 +17,4 @@ environs
 psycopg2-binary
 gunicorn
 whitenoise
+dj_database_url
