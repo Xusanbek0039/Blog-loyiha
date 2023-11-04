@@ -1,0 +1,86 @@
+# Blog-loyihasi
+Oddiy django loyihasi
+
+Ushbu loyihani kompyuteringizda qanday ishga tushirish bo'yicha bosqichma-bosqich buyruqlar
+
+1)- Muhit yuklab oling Virtualenv
+
+```
+pip install virtualenv
+```
+
+2)- Virtualenv yarating
+
+```
+virtualenv venv
+```
+
+3)- Virtual muhitni faollashtirish
+
+```
+venv/Scripts/activate
+```
+
+4)- O'rnatish talablari agar kutubxonalar to'liq bo'lsa shart emas!
+
+```
+pip install -r requirements.txt
+```
+Eslatma: Birinchi marta o'rnatish uchun yuqoridagi buyruq talab qilinadi!
+
+5)- Quyidagi buyruqlarni bajaring bu shart database uchun
+
+```
+python manage.py makemigrations
+```
+```
+python manage.py migrate
+```
+Eslatma: Agar database ni debug da ishga tushursangiz bu majburiy!
+
+6)- Administratorga kirish uchun createsuperuser yarating va agar yaratilmagan bo'lsa, ko'rsatmalarga rioya qiling:
+
+Username: Xusanbe
+Parol: 0071
+
+```
+python manage.py createsuperuser
+```
+
+7)- Statik fayllarni bitta joyda to'plang. Bu shart aks holda sayt css fayllarni o'qimaydi
+```
+python manage.py collectstatic
+```
+<br>
+
+## Ishga tushurish
+
+```
+python manage.py runserver
+```
+Loyiha ishga tayyor uni ishga tushurish mumkin!
+Eslatma: Agar qadamlar to'g'ri bajarilsa loyiha ishga tushadi!
+
+<br>
+
+## Loyihadan lavhalar
+
+Home Page:
+
+![home](https://drive.google.com/file/d/1J8SiVi3mOjSqygCvWStKubp0rJ5Ml0ax/view?usp=sharing)
+
+Posts Page:
+
+![allposts](https://user-images.githubusercontent.com/59236526/112477894-7c90dc80-8d84-11eb-8fd8-5f8d3505a6d5.jpg)
+
+Authors Page:
+
+![authors](https://user-images.githubusercontent.com/59236526/112477900-7dc20980-8d84-11eb-9d2b-d0193387bc51.jpg)
+
+Post Create Page:
+
+![post-create](https://user-images.githubusercontent.com/59236526/112477906-7ef33680-8d84-11eb-9a28-1e61def15dbd.jpg)
+
+Post Update Page:
+
+![update-post](https://user-images.githubusercontent.com/59236526/112477911-80246380-8d84-11eb-9730-7660b4763080.jpg)

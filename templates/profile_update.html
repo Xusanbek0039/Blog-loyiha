@@ -1,0 +1,70 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <section class="site-section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6 offset-md-3">
+                    <h1>Hisob taxrirlash bo'limi!</h1>
+                </div>
+            </div>
+            <div class="row blog-entries">
+                <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="first_name">Ismingiz</label>
+                                {{ user_form.first_name }}
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="last_name">Familiyangiz</label>
+                                {{ user_form.last_name }}
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="username">Foydalanuvchi nomi</label>
+                                {{ user_form.username }}
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="email">Pochtangiz</label>
+                                {{ user_form.email }}
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="title">Sarlavha</label>
+                                {{ profile_form.title }}
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="description">Tavsif</label>
+                                {{ profile_form.description }}
+                            </div>
+                            <div class="col-md-12 form-group mt-4">
+                                <div class="sidebar-box">
+                                    <div class="bio text-center">
+                                        <img style="top: 20px" src="{{ request.user.userdetail.image.url }}" alt="Tasvirni joylashtiruvchi" class="img-fluid">
+                                        <div class="bio-body">
+                                            <h2>Joriy rasm</h2>
+                                            <div class="col-md-12 form-group">
+                                                {{ profile_form.image }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="submit" value="Hisobni yangilash" class="btn btn-primary rounded">
+                            </div>
+                        </div>
+                    </form>
+                    <!-- TODO: Post Oluşturma, Giriş yapan kullanıcının kendi post'larını düzenlemesi, silmesi -->
+                </div>
+
+                <!-- END main-content -->
+
+
+{% endblock %}
