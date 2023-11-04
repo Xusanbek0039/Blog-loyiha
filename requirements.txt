@@ -15,3 +15,4 @@ soupsieve==2.2.1
 sqlparse==0.4.1
 environ
 psycopg2-binary
+gunicorn
