@@ -63,6 +63,7 @@ Eslatma: Agar qadamlar to'g'ri bajarilsa loyiha ishga tushadi!
 
 <br>
 
+
 ## Loyihadan lavhalar
 
 # https://it-blog-uz.onrender.com/
