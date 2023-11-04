@@ -16,3 +16,4 @@ sqlparse==0.4.1
 environs
 psycopg2-binary
 gunicorn
+whitenoise

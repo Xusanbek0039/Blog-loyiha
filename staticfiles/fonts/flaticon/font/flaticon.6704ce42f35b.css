@@ -1,0 +1,47 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 05/04/2018 23:22
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.37c9235502d1.eot");
+  src: url("./Flaticon.37c9235502d1.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.487f27c75edb.woff") format("woff"),
+       url("./Flaticon.28e92368826c.ttf") format("truetype"),
+       url("./Flaticon.138e5b28abfe.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.138e5b28abfe.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-student-1:before { content: "\f100"; }
+.flaticon-test:before { content: "\f101"; }
+.flaticon-geography:before { content: "\f102"; }
+.flaticon-video-call:before { content: "\f103"; }
+.flaticon-video-player-2:before { content: "\f104"; }
+.flaticon-notes:before { content: "\f105"; }
+.flaticon-question:before { content: "\f106"; }
+.flaticon-student:before { content: "\f107"; }
+.flaticon-placeholder:before { content: "\f108"; }
+.flaticon-audiobook:before { content: "\f109"; }
+.flaticon-learning:before { content: "\f10a"; }
+.flaticon-video-player-1:before { content: "\f10b"; }
+.flaticon-video-player:before { content: "\f10c"; }
+.flaticon-book:before { content: "\f10d"; }
+.flaticon-education:before { content: "\f10e"; }
+.flaticon-interface:before { content: "\f10f"; }
