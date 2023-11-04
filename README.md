@@ -40,7 +40,7 @@ Eslatma: Agar database ni debug da ishga tushursangiz bu majburiy!
 
 6)- Administratorga kirish uchun createsuperuser yarating va agar yaratilmagan bo'lsa, ko'rsatmalarga rioya qiling:
 
-Username: Xusanbe
+Username: Xusanbek
 Parol: 0071
 
 ```
