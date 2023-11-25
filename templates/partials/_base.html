@@ -4,8 +4,9 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>IT Creative &mdash; Texnalogiyalar dunyosi</title>
+    <title>Creator's Blog </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,66 +26,70 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <link rel="Site icon" type="image/png" href="{% static 'images/creative.jpg' %}"/>
+    <link rel="Site icon" type="image/png" href="{% static 'images/logo.png' %}" />
 </head>
+
 <body>
 
 
-<div class="wrap">
-    <!-- Messages Start -->
-    {% include 'partials/messages.html' %}
-    <!-- Messages End -->
+    <div class="wrap">
+        <!-- Messages Start -->
+        {% include 'partials/messages.html' %}
+        <!-- Messages End -->
 
-    <header role="banner">
-        <div class="top-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-9 social">
-                        <a href="https://github.com/Xusanbek0071"><span class="fa fa-github"></span></a>
-                        <a href="https://instagram.com/it_creative_channel"><span class="fa fa-instagram"></span></a>
-                    </div>
-                    <div class="col-3 search-top">
-                        <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                        <form action="{% url 'posts:search' %}" method="GET" class="search-top-form">
-                            <span class="icon fa fa-search"></span>
-                            <input type="text" name="query" id="s" placeholder="Qidiruv...">
-                        </form>
+        <header role="banner">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 social">
+                            <a href="https://github.com/Xusanbek0071"><span class="fa fa-github"></span></a>
+                            <a href="https://github.com/it_creative_channel"><span class="fa fa-telegram"></span></a>
+                            <a href="https://facebook.com/suyunov_husanbek"><span class="fa fa-facebook"></span></a>
+                            <a href="https://twitter.com/suyunov_husan"><span class="fa fa-twitter"></span></a>
+                            <a href="https://instagram.com/husanbek_dev/"><span class="fa fa-instagram"></span></a>
+                        </div>
+                        <div class="col-3 search-top">
+                            <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+                            <form action="{% url 'posts:search' %}" method="GET" class="search-top-form">
+                                <span class="icon fa fa-search"></span>
+                                <input type="text" name="query" id="s" placeholder="Qidiruv...">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container logo-wrap">
-            <div class="row pt-5">
-                <div class="col-12 text-center">
-                    <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-                    <h1 class="site-logo"><a href="{% url 'pages:index' %}">IT Creative</a></h1>
+            <div class="container logo-wrap">
+                <div class="row pt-5">
+                    <div class="col-12 text-center">
+                        <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+                        <h1 class="site-logo"><a href="{% url 'pages:index' %}">Creator's Blog </a></h1>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <nav class="navbar navbar-expand-md  navbar-light bg-light">
-            <div class="container">
+            <nav class="navbar navbar-expand-md  navbar-light bg-light">
+                <div class="container">
 
 
-                <div class="collapse navbar-collapse" id="navbarMenu">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link  {% if '/' == request.path %}active{% endif %}" href="{% url 'pages:index' %}">Bosh saxifa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if 'post' in request.path and 'create' not in request.path %}active{% endif %}" href="{% url 'posts:posts' %}">Postlar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if 'accounts/all' in request.path or 'accounts/detail' in request.path %}active{% endif %}" href="{% url 'user:authors' %}">Mualliflar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link  {% if 'about' in request.path %}active{% endif %}" href="{% url 'pages:about' %}">Biz haqimizda </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}">Biz bilan a'loqa</a>
-                        </li>
-                        {% if request.user.is_authenticated %}
+                    <div class="collapse navbar-collapse" id="navbarMenu">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link  {% if '/' == request.path %}active{% endif %}" href="{% url 'pages:index' %}">Bosh saxifa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'post' in request.path and 'create' not in request.path %}active{% endif %}" href="{% url 'posts:posts' %}">Postlar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'accounts/all' in request.path or 'accounts/detail' in request.path %}active{% endif %}" href="{% url 'user:authors' %}">Mualliflar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link  {% if 'about' in request.path %}active{% endif %}" href="{% url 'pages:about' %}">Biz haqimizda </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}">Biz bilan a'loqa</a>
+                            </li>
+                            {% if request.user.is_authenticated %}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {% if 'profile' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ request.user.username }}</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
@@ -95,7 +100,7 @@
                                     <a class="dropdown-item" href="{% url 'user:logout' %}"><i class="fa fa-sign-out"></i> Chiqish</a>
                                 </div>
                             </li>
-                        {% else %}
+                            {% else %}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hisob</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
@@ -103,65 +108,66 @@
                                     <a class="dropdown-item " href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Ro'yxatdan o'tish</a>
                                 </div>
                             </li>
-                        {% endif %}
-                    </ul>
+                            {% endif %}
+                        </ul>
 
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <!-- END header -->
+            </nav>
+        </header>
+        <!-- END header -->
 
 
-    {% block content %}
+        {% block content %}
         <!-- Site Dynamic Content -->
-    {% endblock %}
+        {% endblock %}
 
 
-    <!-- Sidebar Section Start -->
-    {% include 'partials/_sidebar.html' %}
-    <!-- Sidebar Section End -->
+        <!-- Sidebar Section Start -->
+        {% include 'partials/_sidebar.html' %}
+        <!-- Sidebar Section End -->
 
-    {% block related_posts %}
+        {% block related_posts %}
         <!-- (Optional) Related Post -->
-    {% endblock %}
+        {% endblock %}
 
-    <footer class="site-footer w-100 pb-4 pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h3>Biz haqimizda </h3>
-                    <p>Mijozning o'zi ko'p sa ksal sk sa bo'lishi kerak, u adipissing elitiga intiladi. Bularning ixtirochisi rad etadi. Bularning ixtirochisi rad etadi.<a href="{% url 'pages:about' %}"><u>Ko'proq o'qish</u></a> </p>
+        <footer class="site-footer w-100 pb-4 pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h3>Biz haqimizda </h3>
+                        <p>Mijozning o'zi ko'p sa ksal sk sa bo'lishi kerak, u adipissing elitiga intiladi. Bularning ixtirochisi rad etadi. Bularning ixtirochisi rad etadi.<a href="{% url 'pages:about' %}"><u>Ko'proq o'qish</u></a> </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- END footer -->
+        </footer>
+        <!-- END footer -->
 
-</div>
+    </div>
 
-<!-- loader -->
-<div id="loader" class="show fullscreen">
-    <svg class="circular" width="48px" height="48px">
+    <!-- loader -->
+    <div id="loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
         <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/>
     </svg>
-</div>
+    </div>
 
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 
-<!-- added later -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- added later -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-<script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
+
 </html>
