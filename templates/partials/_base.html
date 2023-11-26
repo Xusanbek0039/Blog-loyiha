@@ -93,7 +93,7 @@
                                 <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}"><i class="fa fa-comments"></i>  Contact</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {% if 'blog-home' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-boo"></i> Books</a>
+                                <a class="nav-link dropdown-toggle {% if 'blog-home' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book"></i> Books</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
                                     <a class="dropdown-item" href="{% url 'blog-home' %}"><i class="fa fa-book"></i>   El-books</a>
                                     <!-- <a class="dropdown-item" href="#"><i class="fa fa-id-card"></i> Topshiriq</a> -->
@@ -118,13 +118,18 @@
 
                             </li>
                             {% else %}
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %} " href=" " id="dropdown05 " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Accaunt</a>
-                                <div class="dropdown-menu " aria-labelledby="dropdown05 ">
-                                    <a class="dropdown-item " href="{% url 'user:login' %} "><i class="fa fa-sign-in "></i> Sign in</a>
-                                    <a class="dropdown-item " href="{% url 'user:register' %} "><i class="fa fa-user-plus "></i> Sign up</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Accaunts</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                    <a class="dropdown-item" href="{% url 'user:login' %}"><i class="fa fa-wrench"></i>  Login</a>
+                                    <a class="dropdown-item" href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Sign up</a>
+
+
+
                                 </div>
+
                             </li>
+
                             {% endif %}
                         </ul>
 
