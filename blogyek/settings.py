@@ -104,7 +104,6 @@ DATABASES = {
     }
 }
 
-
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
