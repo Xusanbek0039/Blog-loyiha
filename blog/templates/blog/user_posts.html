@@ -1,0 +1,35 @@
+{% extends "partials/_base.html" %} {% block content %} {% load static %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2 class="mb-3">Ijodkor {{ view.kwargs.username }} | {{ page_obj.paginator.count }} - ta kitob yuklagan</h2>
+        </div>
+    </div>
+
+
+    {% for post in posts %}
+    <section class="site-section pt-5 pb-5">
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }} - tomonidan</a>
+                    <small class="col-md-12">Yuklangan sana:{{ post.date_posted|date:"F d, Y" }}</small>
+                </div>
+                <h2>Kitob nomi: <a class="article-title" href="{% url 'post-detail' post.id %}"> {{ post.title }}</a></h2>
+                <p class="article-content">Kitob haqida qisqacha -{{ post.content }}</p>
+            </div>
+        </article>
+        {% endfor %} {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">Birinchidan</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Oldingi</a> {% endif %} {% for num in page_obj.paginator.page_range %} {% if page_obj.number == num %}
+            <a class="btn btn-info mb-4 active" href="?page={{ num }}">{{ num }}</a> {% elif num > page_obj.number|add:'-3' and num
+            < page_obj.number|add: '3' %} <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %} {% endfor %} {% if page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Oldinga</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Orqaga</a> {% endif %}
+        </div>
+    </section>
+    {% endif %} {% endblock content %}

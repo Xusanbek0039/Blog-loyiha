@@ -1,0 +1,70 @@
+{% extends 'partials/_base.html' %} {% load static %} {% block content %}
+
+<section class="site-section">
+    <div class="container">
+
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <h1>File o‘chirishni tasdiqlash</h1>
+            </div>
+        </div>
+
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+
+                <form onsubmit="return checkCaptcha()" action="" method="POST">
+                    {% csrf_token %}
+
+                    <div class="card border-warning mb-3">
+
+                        <div class="card-header">
+                            Ogohlantirish!
+                        </div>
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">Fileni o‘chirish jarayoni</h5>
+
+                            <p class="card-text">
+                                Eslatib o‘tamiz file o‘chirilgandan so‘ng uni qaytsa qiklash iloji yo‘q!
+                            </p>
+
+                            <p class="card-text">
+                                "{{ object.title }}" nomli fileni o‘chirish!
+                            </p>
+
+                            <div class="form-group">
+                                <button class="btn btn-outline-secondary" type="submit">
+                  Davom etish
+                </button>
+
+                                <a class="btn btn-outline-info" href="{% url 'post-detail' object.id %}">
+                  Orqaga
+                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <script>
+                    function checkCaptcha() {
+                        let captcha = prompt("Yo'q qilishni davom etish uchun Roziman so'zini kiriting");
+                        if (captcha !== "Roziman") {
+                            alert("Rozilik berilmadi. Yo'q qilish jarayoni bekor qilindi.");
+                            window.history.back();
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

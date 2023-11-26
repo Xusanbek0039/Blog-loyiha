@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700|Inconsolata:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -50,9 +52,9 @@
                         </div>
                         <div class="col-3 search-top">
                             <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                            <form action="{% url 'posts:search' %}" method="GET" class="search-top-form">
+                            <form action="{% url 'search' %}" method="GET" class="search-top-form">
                                 <span class="icon fa fa-search"></span>
-                                <input type="text" name="query" id="s" placeholder="Qidiruv...">
+                                <input type="text" name="q" id="s" placeholder="Qidiruv...">
                             </form>
                         </div>
                     </div>
@@ -75,37 +77,52 @@
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link  {% if '/' == request.path %}active{% endif %}" href="{% url 'pages:index' %}">Bosh saxifa</a>
+                                <a class="nav-link  {% if '/' == request.path %}active{% endif %}" href="{% url 'pages:index' %}"><i class="fa fa-home"></i>  Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if 'post' in request.path and 'create' not in request.path %}active{% endif %}" href="{% url 'posts:posts' %}">Postlar</a>
+                                <a class="nav-link {% if 'post' in request.path and 'create' not in request.path %}active{% endif %}" href="{% url 'posts:posts' %}"><i class="fa fa-comments"></i>  Posts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if 'accounts/all' in request.path or 'accounts/detail' in request.path %}active{% endif %}" href="{% url 'user:authors' %}">Mualliflar</a>
+                                <a class="nav-link {% if 'accounts/all' in request.path or 'accounts/detail' in request.path %}active{% endif %}" href="{% url 'user:authors' %}"><i class="fa fa-user-circle"></i> Creator</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link  {% if 'about' in request.path %}active{% endif %}" href="{% url 'pages:about' %}">Biz haqimizda </a>
+                                <a class="nav-link  {% if 'about' in request.path %}active{% endif %}" href="{% url 'pages:about' %}"><i class="fa fa-group"></i>  About </a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}">Biz bilan a'loqa</a>
+                                <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}"><i class="fa fa-comments"></i>  Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle {% if 'blog-home' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-boo"></i> Books</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                    <a class="dropdown-item" href="{% url 'blog-home' %}"><i class="fa fa-book"></i>   El-books</a>
+                                    <!-- <a class="dropdown-item" href="#"><i class="fa fa-id-card"></i> Topshiriq</a> -->
+
+
+
+                                </div>
+
                             </li>
                             {% if request.user.is_authenticated %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {% if 'profile' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ request.user.username }}</a>
+                                <a class="nav-link dropdown-toggle {% if 'profile' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-md"></i> {{ request.user.username }}</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                    <a class="dropdown-item" href="{% url 'posts:postCreate' %}"><i class="fa fa-plus"></i> Post joylash</a>
-                                    <a class="dropdown-item" href="{% url 'user:viewProfile'%}"><i class="fa fa-id-card"></i> Hisobni ko'rish</a>
-                                    <a class="dropdown-item" href="{% url 'user:updateProfile' %}"><i class="fa fa-pencil-square-o"></i> Hisobni taxrirlash</a>
-                                    <a class="dropdown-item" href="{% url 'user:changePassword' %}"><i class="fa fa-wrench"></i> Parolni yangilash</a>
-                                    <a class="dropdown-item" href="{% url 'user:logout' %}"><i class="fa fa-sign-out"></i> Chiqish</a>
+                                    <a class="dropdown-item" href="{% url 'posts:postCreate' %}"><i class="fa fa-plus"></i> New post</a>
+                                    <a class="dropdown-item" href="{% url 'user:viewProfile'%}"><i class="fa fa-id-card"></i> My accaunt</a>
+                                    <a href="{% url 'user-posts' user %}" class="dropdown-item "><i class="fas fa-money-check  "></i> My books</a>
+                                    <a href="{% url 'post-create' %} " class="dropdown-item "><i class="fas fa-file-download"></i> Upload books</a>
+                                    <a class="dropdown-item " href="{% url 'user:updateProfile' %} "><i class="fa fa-pencil-square-o "></i> Accaunt edit</a>
+                                    <a class="dropdown-item " href="{% url 'user:changePassword' %} "><i class="fa fa-wrench "></i> Password upload</a>
+                                    <a class="dropdown-item " href="{% url 'user:logout' %} "><i class="fa fa-sign-out "></i> Log out</a>
                                 </div>
+
                             </li>
                             {% else %}
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hisob</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                    <a class="dropdown-item " href="{% url 'user:login' %}"><i class="fa fa-sign-in"></i> Kirish</a>
-                                    <a class="dropdown-item " href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Ro'yxatdan o'tish</a>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %} " href=" " id="dropdown05 " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Accaunt</a>
+                                <div class="dropdown-menu " aria-labelledby="dropdown05 ">
+                                    <a class="dropdown-item " href="{% url 'user:login' %} "><i class="fa fa-sign-in "></i> Sign in</a>
+                                    <a class="dropdown-item " href="{% url 'user:register' %} "><i class="fa fa-user-plus "></i> Sign up</a>
                                 </div>
                             </li>
                             {% endif %}
@@ -131,12 +148,12 @@
         <!-- (Optional) Related Post -->
         {% endblock %}
 
-        <footer class="site-footer w-100 pb-4 pt-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
+        <footer class="site-footer w-100 pb-4 pt-5 ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 text-center ">
                         <h3>Biz haqimizda </h3>
-                        <p>Mijozning o'zi ko'p sa ksal sk sa bo'lishi kerak, u adipissing elitiga intiladi. Bularning ixtirochisi rad etadi. Bularning ixtirochisi rad etadi.<a href="{% url 'pages:about' %}"><u>Ko'proq o'qish</u></a> </p>
+                        <p>Mijozning o'zi ko'p sa ksal sk sa bo'lishi kerak, u adipissing elitiga intiladi. Bularning ixtirochisi rad etadi. Bularning ixtirochisi rad etadi.<a href="{% url 'pages:about' %} "><u>Ko'proq o'qish</u></a> </p>
                     </div>
                 </div>
             </div>
@@ -146,28 +163,28 @@
     </div>
 
     <!-- loader -->
-    <div id="loader" class="show fullscreen">
-        <svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/>
+    <div id="loader " class="show fullscreen ">
+        <svg class="circular " width="48px " height="48px ">
+        <circle class="path-bg " cx="24 " cy="24 " r="22 " fill="none " stroke-width="4 " stroke="#eeeeee "/>
+        <circle class="path " cx="24 " cy="24 " r="22 " fill="none " stroke-width="4 " stroke-miterlimit="10 " stroke="#f4b214 "/>
     </svg>
     </div>
 
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %} "></script>
+    <script src="{% static 'js/jquery-migrate-3.0.0.js' %} "></script>
+    <script src="{% static 'js/popper.min.js' %} "></script>
+    <script src="{% static 'js/bootstrap.min.js' %} "></script>
+    <script src="{% static 'js/owl.carousel.min.js' %} "></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %} "></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %} "></script>
 
     <!-- added later -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js " integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0 " crossorigin="anonymous "></script>
 
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %} "></script>
 </body>
 
 </html>

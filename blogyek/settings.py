@@ -45,16 +45,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic', # new
     'django.contrib.staticfiles',
-
-    # My Apps
     'pages',
     'posts',
     'users',
-
-    # Third Party Apps
     'ckeditor',
     'django_cleanup',
+    'downapp',
+    'blog',
+    'crispy_forms',
+
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us-uz'
+LANGUAGE_CODE = 'uz-uz'
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -152,14 +153,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles/'
-STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' # new
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    BASE_DIR / 'blog/static',
+]
+STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
 
 # MEDIA FILES
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
 
 # CKEDITOR
 CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery-3.6.0.min.js')
@@ -169,8 +172,6 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     },
 }
-
-
 # MESSAGES
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',

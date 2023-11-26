@@ -1,0 +1,80 @@
+{% extends "partials/_base.html" %} {% block content %} {% for post in posts %}
+<!-- SLIDER section -->
+<section class="site-section pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme home-slider">
+
+                    {% for randompost in randomposts %}
+                    <div>
+                        <a href="{% url 'posts:postDetail' randompost.category.slug randompost.id randompost.slug %}" class="a-block d-flex align-items-center height-lg" style="background-image: url({{ randompost.image.url }});">
+                            <div class="text half-to-full">
+                                <span class="category mb-5">{{ randompost.category.name }}</span>
+                                <div class="post-meta">
+                                    <span class="author mr-2"><img src="{{ randompost.author.userdetail.image.url }}" alt="Colorlib"> {{ randompost.author.username }}</span>&bullet;
+                                    <span class="mr-2">{{ randompost.created | date }} </span> &bullet;
+                                    <span class="ml-2"><span class="fa fa-eye"></span> {{ randompost.getHitCount }}</span>
+                                </div>
+                                <h3>{{ randompost.title | title }}</h3>
+                                <p>{{ randompost.content | safe | linebreaks | truncatechars:100 }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="site-section pt-0 pb-3">
+
+
+
+
+
+
+
+
+
+
+    <div class="jumbotron mt-3 bg-white shadow-lg">
+        <article class="media content-section shadow">
+            <a href="{{ post.author.profile.image.url }} " target="_blank"> <img src="{{ post.author.profile.image.url }}  " alt="" class="article-img rounded-circle img-thumbnail img-fluid shadow">
+            </a>
+            <div class="media-body">
+                <div class="article-metadata d-flex justify-content-between">
+                    <a class="mr-2 " href="{% url 'user-posts' post.author.username  %}">
+                        <h3><i class="fas fa-user "></i> {{ post.author }}</h3>
+                    </a>
+                    <small class="text-muted">{{ post.date_upload|date:"F d, Y" }}</small>
+                </div>
+                {% if post.file %}
+                <a href="{{ post.file.url }}" download class="text-dark text-justify ">
+                    <h5>{{ post.blog }}</h5>
+                </a>
+                {% endif %}
+
+
+
+                <h2><a class="article-title text-justify " href="{% url 'post-detail' post.id %}"><i class="fas fa-bookmark"></i>{{ post.title }}</a></h2>
+                <div class="d-flex justify-content-between">
+                    <p class="article-content text-justify text-truncate overflow-hidden"><i class="fas fa-text-width"></i>{{ post.content }}</p>
+                    {% if post.file %}
+                    <div class="form-group mt-0 pt-0  m-2">
+                        <a class="btn btn-outline-primary  btn-d " href="{{ post.file.url }}" download type="submit"><i class="fas fa-download"></i> Yuklab olish</a>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </article>
+    </div>
+
+    {% endfor %} {% if is_paginated %} {% if page_obj.has_previous %}
+    <a class="btn btn-outline-info mb-4" href="?page=1">Birinchidan</a>
+    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Oldingi</a> <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a> {% endif %} {% if page_obj.has_next %}
+    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Keyingi</a>
+    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Oldingi</a> {% endif %} {% endif %} {% endblock content %}

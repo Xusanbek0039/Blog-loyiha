@@ -1,0 +1,42 @@
+{% extends 'partials/_base.html' %} {% load static %} {% block content %}
+<section class="site-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <h1>Faylni taxrirlash</h1>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="col-md-12 form-group">
+                        <label for="id_title">Sarlavha</label> {{ form.title }}
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label for="id_file">Yuklangan fayl: </label> {{ form.file }}
+                    </div>
+                    <div class="col-md-12 form-group ">
+                        <label for="id_content ">Tarkib</label> {{ form.content }} {{ form.media }}
+                    </div>
+            </div>
+            <div class="row ">
+                <div class="col-xl-12 form-group ">
+                    <input type="submit" value="Yuklash " class="btn btn-primary  fas fa-download">
+                </div>
+            </div>
+
+            </form>
+            <!-- TODO: Post Oluşturma, Giriş yapan kullanıcının kendi post'larını düzenlemesi, silmesi -->
+        </div>
+        <script>
+            $('input, select').addClass('id_title  form-control ');
+            $('textarea').attr('cols', '100').addClass('id_content form-control ');
+            $('input[type="submit "]').removeClass('id_submit ');
+        </script>
+
+        <!-- END main-content -->
+
+
+        {% endblock %}
