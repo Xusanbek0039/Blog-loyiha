@@ -1,6 +1,7 @@
 # Blog-loyihasi
 Oddiy django loyihasi
 
+
 Ushbu loyihani kompyuteringizda qanday ishga tushirish bo'yicha bosqichma-bosqich buyruqlar
 
 1)- Muhit yuklab oling Virtualenv
