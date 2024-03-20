@@ -15,12 +15,11 @@ import os, dj_database_url
 from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.urls import reverse_lazy
-from environs import Env
+
 
 
 # Environment variables
-env = Env()
-env.read_env()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "sdlhvjdskljvhpsdvsdvsdv-sdvsd-vsdv45sd4v5ds4v54sdvsdv"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -138,16 +137,33 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'uz-uz'
+# LANGUAGE_CODE = 'uz-uz'
+
+# TIME_ZONE = 'Asia/Tashkent'
+
+# USE_I18N = True
+
+# USE_L10N = True
+
+# USE_TZ = True
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
+from django.utils.translation import gettext_lazy as _
+LANGUAGES = [
+    ('uz', _('Uzbek')),
+    ('en', _('English')),
+    ('ru', _('Russian')),
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+
+LOCALE_PATH = BASE_DIR, 'locale/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -167,7 +183,7 @@ CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery-3.6.0.min.js')
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        'width': '100%',
+        'width': '10%',
     },
 }
 # MESSAGES
