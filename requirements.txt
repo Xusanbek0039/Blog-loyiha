@@ -25,4 +25,3 @@ whitenoise
 ckeditor
 django_cleanup
 django-crispy_forms
-crispy_forms
