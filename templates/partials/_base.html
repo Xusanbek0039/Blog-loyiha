@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <title>Creator's Blog </title>
+    <title>IT Creative Blog </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -65,7 +65,7 @@
                 <div class="row pt-5">
                     <div class="col-12 text-center">
                         <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-                        <h1 class="site-logo"><a href="{% url 'pages:index' %}">Creator's Blog </a></h1>
+                        <h1 class="site-logo"><a href="{% url 'pages:index' %}">IT Creative Blog </a></h1>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {% if 'blog-home' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book"></i> Books</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                    <a class="dropdown-item" href="{% url 'blog-home' %}"><i class="fa fa-book"></i>   El-books</a>
+                                    <a class="dropdown-item" href="{% url 'blog-home' %}"><i class="fa fa-book"></i>   E-books</a>
                                     <!-- <a class="dropdown-item" href="#"><i class="fa fa-id-card"></i> Topshiriq</a> -->
 
 
@@ -122,7 +122,7 @@
                                 <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Accaunts</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
                                     <a class="dropdown-item" href="{% url 'user:login' %}"><i class="fa fa-wrench"></i>  Login</a>
-                                    <a class="dropdown-item" href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Sign up</a>
+                                    <!-- <a class="dropdown-item" href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Sign up</a> -->
 
 
 
