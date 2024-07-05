@@ -1908,6 +1908,7 @@ textarea.form-control {
     .form-inline .form-group {
       display: -webkit-box;
       display: -ms-flexbox;
+      
       display: flex;
       -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
