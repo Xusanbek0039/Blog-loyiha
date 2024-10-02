@@ -22,6 +22,6 @@ dj_database_url
 django-crispy-forms
 django-widget_tweaks
 whitenoise
-ckeditor
+django-ckeditor
 django_cleanup
 django-crispy_forms
