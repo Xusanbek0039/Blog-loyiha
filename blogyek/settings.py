@@ -146,12 +146,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-from django.utils.translation import gettext_lazy as _
-LANGUAGES = [
-    ('uz', _('Uzbek')),
-    ('en', _('English')),
-    ('ru', _('Russian')),
-]
+
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
