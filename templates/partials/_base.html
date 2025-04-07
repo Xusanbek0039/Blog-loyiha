@@ -81,20 +81,20 @@
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link  {% if '/' == request.path %}active{% endif %}" href="{% url 'pages:index' %}"><i class="fa fa-home"></i>  Home</a>
+                                <a class="nav-link  {% if '/' == request.path %}active{% endif %}" href="{% url 'pages:index' %}"><i class="fa fa-home"></i>  Bosh saxifa</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if 'post' in request.path and 'create' not in request.path %}active{% endif %}" href="{% url 'posts:posts' %}"><i class="fa fa-comments"></i>  Posts</a>
+                                <a class="nav-link {% if 'post' in request.path and 'create' not in request.path %}active{% endif %}" href="{% url 'posts:posts' %}"><i class="fa fa-comments"></i>  Postlar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% if 'accounts/all' in request.path or 'accounts/detail' in request.path %}active{% endif %}" href="{% url 'user:authors' %}"><i class="fa fa-user-circle"></i> Creator</a>
+                                <a class="nav-link {% if 'accounts/all' in request.path or 'accounts/detail' in request.path %}active{% endif %}" href="{% url 'user:authors' %}"><i class="fa fa-user-circle"></i> Yaratuvchilar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link  {% if 'about' in request.path %}active{% endif %}" href="{% url 'pages:about' %}"><i class="fa fa-group"></i>  About </a>
+                                <a class="nav-link  {% if 'about' in request.path %}active{% endif %}" href="{% url 'pages:about' %}"><i class="fa fa-group"></i>  Biz haqimizda </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}"><i class="fa fa-comments"></i>  Contact</a>
+                                <a class="nav-link  {% if 'contact' in request.path %}active{% endif %}" href="{% url 'pages:contact' %}"><i class="fa fa-comments"></i>  Bog'lanish</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {% if 'blog-home' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-book"></i> Books</a>
@@ -111,22 +111,22 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {% if 'profile' in request.path or 'change-password' in request.path or 'create' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-md"></i> {{ request.user.username }}</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                    <a class="dropdown-item" href="{% url 'posts:postCreate' %}"><i class="fa fa-plus"></i> New post</a>
-                                    <a class="dropdown-item" href="{% url 'user:viewProfile'%}"><i class="fa fa-id-card"></i> My accaunt</a>
-                                    <a href="{% url 'user-posts' user %}" class="dropdown-item "><i class="fas fa-money-check  "></i> My books</a>
-                                    <a href="{% url 'post-create' %} " class="dropdown-item "><i class="fas fa-file-download"></i> Upload books</a>
-                                    <a class="dropdown-item " href="{% url 'user:updateProfile' %} "><i class="fa fa-pencil-square-o "></i> Accaunt edit</a>
-                                    <a class="dropdown-item " href="{% url 'user:changePassword' %} "><i class="fa fa-wrench "></i> Password upload</a>
-                                    <a class="dropdown-item " href="{% url 'user:logout' %} "><i class="fa fa-sign-out "></i> Log out</a>
+                                    <a class="dropdown-item" href="{% url 'posts:postCreate' %}"><i class="fa fa-plus"></i> Yangi post</a>
+                                    <a class="dropdown-item" href="{% url 'user:viewProfile'%}"><i class="fa fa-id-card"></i> Hisobim</a>
+                                    <a href="{% url 'user-posts' user %}" class="dropdown-item "><i class="fas fa-money-check  "></i> Kitoblarim</a>
+                                    <a href="{% url 'post-create' %} " class="dropdown-item "><i class="fas fa-file-download"></i> Yuklamalar</a>
+                                    <a class="dropdown-item " href="{% url 'user:updateProfile' %} "><i class="fa fa-pencil-square-o "></i> Sozlamalar</a>
+                                    <a class="dropdown-item " href="{% url 'user:changePassword' %} "><i class="fa fa-wrench "></i> Parol yangilash</a>
+                                    <a class="dropdown-item " href="{% url 'user:logout' %} "><i class="fa fa-sign-out "></i> Tark etish</a>
                                 </div>
 
                             </li>
                             {% else %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Accaunts</a>
+                                <a class="nav-link dropdown-toggle {% if 'login' in request.path or 'register' in request.path %}active{% endif %}" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Shaxsiy hisob</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                    <a class="dropdown-item" href="{% url 'user:login' %}"><i class="fa fa-wrench"></i>  Login</a>
-                                    <!-- <a class="dropdown-item" href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Sign up</a> -->
+                                    <a class="dropdown-item" href="{% url 'user:login' %}"><i class="fa fa-wrench"></i>  Kirish</a>
+                                    <a class="dropdown-item" href="{% url 'user:register' %}"><i class="fa fa-user-plus"></i> Ro'yxatdan o'tish</a>
 
 
 
