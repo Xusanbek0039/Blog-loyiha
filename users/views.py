@@ -44,7 +44,7 @@ class PasswordsChangeView(PasswordChangeView):
     success_url = reverse_lazy('user:viewProfile')
 
     def form_valid(self, form):
-        messages.success(self.request, "Your password has been changed successfully.")
+        messages.success(self.request, " Parolingiz muvaffaqiyatli o'zgartirildi.")
         return super(PasswordsChangeView, self).form_valid(form)
 
 
@@ -63,7 +63,7 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
+            messages.success(request, 'Profilingiz muvaffaqiyatli yangilandi!')
             return HttpResponseRedirect(reverse_lazy('user:updateProfile'))
 
         context = self.get_context_data(user_form=user_form, profile_form=profile_form)
@@ -86,16 +86,16 @@ def registerView(request):
 
         if password == repassword:
             if User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists():
-                messages.warning(request, 'Username or email is already taken.')
+                messages.warning(request, 'Foydalanuvchi nomi yoki email allaqachon olingan.')
                 return redirect('user:register')
             else:
                 # registration
                 user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
                 user.save()
-                messages.success(request, 'Registration created! You can login to your account.')
+                messages.success(request, 'Ro\'yxatdan o\'tish yaratildi! Hisobingizga kirishingiz mumkin.')
                 return redirect('user:login')
         else:
-            messages.warning(request, 'Passwords do not match.')
+            messages.warning(request, 'Parollar o\'zaro mos emas!')
             return redirect('user:register')
     else:
         return render(request, 'register.html')
@@ -108,10 +108,10 @@ def loginView(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, 'Login successful! Welcome, ' + username)
+            messages.success(request, username+" Assalomu alekum! Saytimizga xush kelibsiz!")
             return redirect('pages:index')
         else:
-            messages.error(request, 'Check your information and try again!')
+            messages.error(request, "Ma'lumotlaringizni tekshiring va qayta urinib ko'ring!")
             return redirect('user:login')
     else:
         return render(request, 'login.html')
@@ -119,7 +119,7 @@ def loginView(request):
 
 def logoutView(request):
     logout(request)
-    messages.success(request, 'You have successfully logged out.')
+    messages.success(request, 'Siz tizimdan muvaffaqiyatli chiqdingiz.')
     return redirect('user:login')
 
 

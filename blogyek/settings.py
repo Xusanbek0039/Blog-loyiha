@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "sdlhvjdskljvhpsdvsdvsdv-sdvsd-vsdv45sd4v5ds4v54sdvsdv"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -72,8 +72,7 @@ ROOT_URLCONF = 'blogyek.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],  # Shablonlarni bu yerda ko'rsatishingiz mumkin
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +84,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'blogyek.wsgi.application'
 
@@ -146,7 +146,23 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
